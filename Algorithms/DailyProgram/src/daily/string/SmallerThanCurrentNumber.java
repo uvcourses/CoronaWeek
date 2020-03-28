@@ -8,25 +8,28 @@ public class SmallerThanCurrentNumber {
 	
 	 public int[] smallerNumbersThanCurrent(int[] nums) {
 		 
-		 int result[]=new int[nums.length]; 
-		 List<Integer> numbersList = new ArrayList<Integer>();
-         
-	        
-		 for(int i:nums) { 
-			 numbersList.add(i);
-		 }
 		 
-	        Collections.sort(numbersList);
-	        
-	        int r=0;
-		 
-		 for(int j=0;j< nums.length;j++) { 
-			 
-			result[j]= numbersList.indexOf(nums[j]);
-			 
-		 }
-		 
-		 return result;
+	        java.util.Map<Integer, Integer> map = new java.util.HashMap<>();
+	        int[] outPut = new int[nums.length];
+	        int[] tmpArray = nums.clone();
+	        java.util.Arrays.sort(tmpArray);
+	        int comCnt = 0;
+
+	        for (int i = 0; i < nums.length; i++) {
+	            if (!map.containsKey(tmpArray[i])) {
+	                map.put(tmpArray[i], i);
+	                if (map.containsKey(nums[comCnt])) {
+	                    outPut[comCnt] = map.get(nums[comCnt]);
+	                    comCnt++;
+	                }
+	            }
+	        }
+
+	        for (int x = comCnt; x < nums.length; x++) {
+	            outPut[x] = map.get(nums[x]);
+	        }
+
+	        return outPut;
 	        
 	    }
 	public static void main(String[] args) {
