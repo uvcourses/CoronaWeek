@@ -9,7 +9,6 @@ public class GeneratePowerset {
 	public static List<List<Integer>> generatePowerSet(List<Integer> inputSet) {
 
 		List<List<Integer>> powerSet = new ArrayList<>();
-
 		directedPowerSet(inputSet, 0, new ArrayList<Integer>(), powerSet);
 System.out.println(powerSet);
 		return powerSet;

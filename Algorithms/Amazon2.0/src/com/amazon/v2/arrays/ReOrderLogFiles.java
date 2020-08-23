@@ -3,7 +3,6 @@ package com.amazon.v2.arrays;
 import java.util.Arrays;
 import java.util.Comparator;
 
-
 public class ReOrderLogFiles {
 
 	public String[] reorderLogFiles(String[] logs) {
