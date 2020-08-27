@@ -1,5 +1,7 @@
 package com.amazon.v2.arrays;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,7 +11,9 @@ import java.util.stream.Collectors;
 
 public class CalculateTestCaseScore {
 	public int solution(String[] R, String T[]) {
-
+		long start = System.currentTimeMillis();
+	//	.....your program....
+		
 		List<TestCase> result = new ArrayList<TestCase>();
 		for (int i = 0; i < T.length; i++) {
 			String str1 = T[i];
@@ -43,6 +47,9 @@ public class CalculateTestCaseScore {
 			}
 			task++;
 		}
+		long end = System.currentTimeMillis();
+		NumberFormat formatter = new DecimalFormat("#0.00000");
+		System.out.println("Execution time is " + formatter.format((end - start) / 1000d) + " seconds"); 
 		return ((passCount * 100) / task);
 
 	}
